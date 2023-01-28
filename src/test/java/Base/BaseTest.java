@@ -4,6 +4,7 @@ package Base;
 import factory.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
@@ -16,7 +17,7 @@ public class BaseTest {
        driver = new DriverFactory().initializeDriver();
     }
 
-    //  @AfterClass
+      @AfterClass
     public void tearDwn() {
         driver.quit();
     }
