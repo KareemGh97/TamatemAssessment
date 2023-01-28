@@ -26,31 +26,40 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//span[text()=' تسجيل الدخول ']")
     private WebElement loginBtn;
 
+    @FindBy(xpath = "/html/body/app-root/div[1]/app-header/div/div/div[2]/div[1]")
+    public static WebElement homeBtn;
 
-    public LoginPage clickSignInButton()
-    {
-        ActionHelper.waitForExistance(signInBtn,5);
+    //make the methods return th page object, so we can use chaining commands
+    public LoginPage clickSignInButton() {
+        ActionHelper.waitForExistance(signInBtn, 5);
         signInBtn.click();
         return this;
     }
-    public LoginPage clickOnLoginByEmailBtn(){
-        ActionHelper.waitForExistance(loginByEmailBtn,5);
+
+    public LoginPage clickOnLoginByEmailBtn() {
+        ActionHelper.waitForExistance(loginByEmailBtn, 5);
         loginByEmailBtn.click();
         return this;
     }
 
-    public LoginPage fillEmailTxtBox(String Email){
+    public LoginPage fillEmailTxtBox(String Email) {
         emailTxtBox.sendKeys(Email);
         return this;
     }
 
-    public LoginPage fillPasswordTxtBox(String password){
+    public LoginPage fillPasswordTxtBox(String password) {
         passwordTxtBox.sendKeys(password);
         return this;
     }
 
-    public void clickLoginUpBtn(){
+    public LoginPage clickLoginUpBtn() {
         loginBtn.click();
-
+        return this;
     }
+
+    public void navigateToHomePage() {
+        ActionHelper.waitForExistance(homeBtn, 20);
+        homeBtn.click();
+    }
+
 }
