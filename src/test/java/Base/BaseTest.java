@@ -1,6 +1,7 @@
 package Base;
 
 
+import factory.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
@@ -12,9 +13,7 @@ public class BaseTest {
     @BeforeClass
     public void setUp() {
 
-        driver = new ChromeDriver();
-        driver.get("https://store.tamatem.co/");
-        driver.manage().window().maximize();
+       driver = new DriverFactory().initializeDriver();
     }
 
     //  @AfterClass

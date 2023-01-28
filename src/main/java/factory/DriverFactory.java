@@ -31,6 +31,7 @@ public class DriverFactory {
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().window().maximize();
+        driver.get("https://store.tamatem.co/");
         return driver;
     }
 }
